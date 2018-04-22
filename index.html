@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>H4ppyC4mper</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ Required CSS files ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootplayer.css" rel="stylesheet">
-    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
-    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
- <!--this is some text-->
-  </head>
-  <body>
+<head>
+  <title>H4ppyC4mper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
-    <div class="container">
-      <div class="row col-md-8 col-md-offset-2 col-xs-12">
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Example: Audio with data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <audio controls
-          data-info-album-art="images/cover.jpg"
-          data-info-artist="H4ppyC4mper"
-          data-info-label="Independent"
-          data-info-year="2018"
-          data-info-att="Music: Jonathan Hoskins."
-          data-track-1-src-mp3="music/1.mp3"
-          data-track-1-title="HyperNova"
-          data-track-2-src-mp3="music/2.mp3"
-          data-track-2-title="Apoapsis"
-          data-track-3-src-mp3="music/3.mp3"
-          data-track-3-title="Dream"
-          data-track-4-src-mp3="music/4.mp3"
-          data-track-4-title="Revolve"
-          data-track-5-src-mp3="music/5.mp3"
-          data-track-5-title="Wanderlust">
-          <source id="src-ogg" type="audio/ogg" />
-          <source id="src-mp3" type="audio/mpeg" />
-          An html5-capable browser is required to play this audio.
-        </audio>
-    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
-    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ Required CSS files ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootplayer.css" rel="stylesheet">
+  <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+  <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+  <!--this is some text-->
+</head>
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Example: Audio with no data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!--
+<body>
+  <script>
+    function getWeatherDemo() {
+      $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast ' +
+        'where woeid in (select woeid from geo.places(1) where text="London")&format=json', function (data) {
+          console.log(data);
+          alert("The temperatute in London is " +
+            data.query.results.channel.item.condition.temp +
+            data.query.results.channel.units.temperature
+          );
+        });
+    }
+  </script>
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="row col-md-8 col-md-offset-2 col-xs-12">
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Example: Audio with data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <audio controls data-info-album-art="images/cover.jpg" data-info-artist="H4ppyC4mper" data-info-label="Independent" data-info-year="2018"
+        data-info-att="Music: Jonathan Hoskins." data-track-1-src-mp3="music/1.mp3" data-track-1-title="HyperNova" data-track-2-src-mp3="music/2.mp3"
+        data-track-2-title="Apoapsis" data-track-3-src-mp3="music/3.mp3" data-track-3-title="Dream" data-track-4-src-mp3="music/4.mp3"
+        data-track-4-title="Revolve" data-track-5-src-mp3="music/5.mp3" data-track-5-title="Wanderlust">
+        <source id="src-ogg" type="audio/ogg" />
+        <source id="src-mp3" type="audio/mpeg" /> An html5-capable browser is required to play this audio.
+      </audio>
+      <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+      <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Example: Audio with no data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <!--
     <h1> Playlist without Album Data</h1>
     <audio controls
       data-track-1-src-mp3="music/1.mp3"
@@ -62,26 +68,29 @@
 
 
 
-      </div><!-- /row -->
-      <!-- /row -->
-      <footer class="row col-md-6 col-md-offset-3 col-xs-12">
-        <div class="list-group">
-          <a  class="list-group-item" href="https://www.flickr.com/photos/13481006@N08/sets/72157650312130202/">
+    </div>
+    <!-- /row -->
+    <!-- /row -->
+    <footer class="row col-md-6 col-md-offset-3 col-xs-12">
+      <div class="list-group">
+        <a class="list-group-item" href="https://www.flickr.com/photos/13481006@N08/sets/72157650312130202/">
           Built upon bootstrap3_player by Iain Houston</a>
-          
-        </div>
-        <!-- /list-group -->
-      </footer>
+
+      </div>
+      <!-- /list-group -->
+    </footer>
 
 
-      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ Required Javascript files ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-      <script src="js/bootplayer.js"></script>
-      <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
-      <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ Required Javascript files ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/bootplayer.js"></script>
+    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
+    <!-- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  -->
 
 
-    </div><!-- container -->
-  </body>
+  </div>
+  <!-- container -->
+</body>
+
 </html>
